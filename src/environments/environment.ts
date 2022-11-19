@@ -3,7 +3,12 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  HOST: 'http://localhost:8080/fushion-box',
+  TOKEN_AUTH_USERNAME: 'fushionApp',
+  TOKEN_AUTH_PASSWORD: 'fushionBoxApp2022',
+  TOKEN_NAME: 'access_token',
+  REINTENTOS: 2  
 };
 
 /*

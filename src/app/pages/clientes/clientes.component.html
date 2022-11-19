@@ -1,0 +1,45 @@
+<router-outlet></router-outlet>
+<div class="contenedor">
+
+    <div class="elements">
+      <form [formGroup]="clientesForm"
+      #formClientes="ngForm">
+        <div>
+            <mat-form-field appearance="fill">
+              <mat-label>identificacion</mat-label>
+              <input matInput formControlName="identificacion" required>
+            </mat-form-field>
+        </div>
+        <div style="justify-content: center;">
+          <mat-form-field appearance="fill">
+            <mat-label>nombres</mat-label>
+            <input matInput formControlName="nombres" required>
+          </mat-form-field>
+        </div>
+        <div style="justify-content: center;">
+            <mat-form-field appearance="fill">
+              <mat-label>apellidos</mat-label>
+              <input matInput formControlName="apellidos" required>
+            </mat-form-field>
+          </div>
+          <div style="justify-content: center;">
+            <mat-form-field appearance="fill">
+              <mat-label>direccion</mat-label>
+              <input matInput formControlName="direccion" required>
+            </mat-form-field>
+          </div>
+          <div style="justify-content: center;">
+            <mat-form-field appearance="fill">
+              <mat-label>edad</mat-label>
+              <input matInput formControlName="edad" required>
+            </mat-form-field>
+          </div>
+        <div class="boton">
+          <div style="padding: 2mm;">
+            <button mat-raised-button color="primary"
+            [disabled]="formClientes.invalid"
+            (click)="registrar()">crear Usuario</button></div>
+        </div>
+      </form>
+    </div>
+  </div>
