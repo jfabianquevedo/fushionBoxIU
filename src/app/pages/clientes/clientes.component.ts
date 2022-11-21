@@ -32,7 +32,7 @@ this.cliente.direccion = this.clientesForm.value['direccion']
 this.cliente.edad = this.clientesForm.value['edad']
 this.cliente.estatus = true
 
-console.log(this.cliente);
+
 
 
   this.clienteService.registrar(this.cliente).subscribe(

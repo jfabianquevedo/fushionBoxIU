@@ -1,0 +1,33 @@
+<router-outlet></router-outlet>
+<div class="contenedor">
+
+    <div class="elements">
+      <form [formGroup]="planesForm"
+      #formPlanes="ngForm">
+        <div style="justify-content: center;">
+          <mat-form-field appearance="fill">
+            <mat-label>nombre</mat-label>
+            <input matInput formControlName="nombre" required>
+          </mat-form-field>
+        </div>
+        <div style="justify-content: center;">
+            <mat-form-field appearance="fill">
+              <mat-label>precio</mat-label>
+              <input matInput formControlName="precio" required>
+            </mat-form-field>
+          </div>
+          <div style="justify-content: center;">
+            <mat-form-field appearance="fill">
+              <mat-label>duracion</mat-label>
+              <input matInput formControlName="duracion" required>
+            </mat-form-field>
+          </div>
+        <div class="boton">
+          <div style="padding: 2mm;">
+            <button mat-raised-button color="primary"
+            [disabled]="planesForm.invalid"
+            (click)="registrarPlan()">crear Plan</button></div>
+        </div>
+      </form>
+    </div>
+  </div>

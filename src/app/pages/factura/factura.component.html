@@ -1,0 +1,96 @@
+<router-outlet></router-outlet>
+<div class="contenedor">
+    <div class="elements">
+      <form [formGroup]="facturaForm"
+      #formFacturas="ngForm">
+      <mat-form-field class="example-full-width">
+        <mat-label>Cliente</mat-label>
+        <mat-select
+          formControlName="Cliente"
+          name="cliente">
+          <mat-option *ngFor="let proc of listaCliente" [value]="proc.id">
+            {{ proc.nombres }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+         <mat-form-field class="example-full-width">
+            <mat-label>Tipo Plan</mat-label>
+            <mat-select
+            required
+              formControlName="plan"
+              name="fuente">
+              <mat-option *ngFor="let plan of listaPlanes" [value]="plan.idPlan">
+                {{ plan.nombre }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+         <div style="justify-content: center;">
+            <mat-form-field appearance="fill">
+              <mat-label>observacion</mat-label>
+              <input matInput formControlName="observacion" required>
+            </mat-form-field>
+          </div>
+          <mat-form-field class="example-full-width">
+            <mat-label>Fecha de Inicio</mat-label>
+            <input
+              matInput
+               [matDatepickerFilter]="myFilter"
+               [matDatepicker]="pickerFechaInicio"
+              formControlName="fechaInicio"
+            />
+            <mat-datepicker-toggle matSuffix [for]="pickerFechaInicio"></mat-datepicker-toggle>
+            <mat-datepicker #pickerFechaInicio></mat-datepicker>
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <mat-label>Fecha Fin</mat-label>
+            <input
+              matInput
+               [matDatepickerFilter]="myFilter"
+               [matDatepicker]="pickerFechaFin"
+              formControlName="fechaFin"
+            />
+            <mat-datepicker-toggle matSuffix [for]="pickerFechaFin"></mat-datepicker-toggle>
+            <mat-datepicker #pickerFechaFin></mat-datepicker>
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <mat-label>Fecha Pago</mat-label>
+            <input
+              matInput
+               [matDatepickerFilter]="myFilter"
+               [matDatepicker]="pickerFechaPago"
+              formControlName="fechaPago"
+            />
+            <mat-datepicker-toggle matSuffix [for]="pickerFechaPago"></mat-datepicker-toggle>
+            <mat-datepicker #pickerFechaPago></mat-datepicker>
+          </mat-form-field>
+
+          <div style="justify-content: center;">
+            <mat-form-field appearance="fill">
+              <mat-label>cantidadClases</mat-label>
+              <input matInput formControlName="cantidadClases" required>
+            </mat-form-field>
+          </div>
+
+          <div style="justify-content: center;">
+            <mat-form-field appearance="fill">
+              <mat-label>recibidoPor</mat-label>
+              <input matInput formControlName="recibidoPor" required>
+            </mat-form-field>
+          </div>
+
+          <div style="justify-content: center;">
+            <mat-form-field appearance="fill">
+              <mat-label>tipoPago</mat-label>
+              <input matInput formControlName="tipoPago" required>
+            </mat-form-field>
+          </div>
+
+        <div class="boton">
+          <div style="padding: 2mm;">
+            <button mat-raised-button color="primary"
+            [disabled]="facturaForm.invalid"
+            (click)="registrarFactura()">crear Factura</button></div>
+        </div>
+      </form>
+    </div>
+  </div>

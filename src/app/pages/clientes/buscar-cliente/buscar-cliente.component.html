@@ -1,0 +1,88 @@
+<router-outlet></router-outlet>
+<ng-container *ngIf="this.dataSource?.data.length > 0; else sinResultados">
+    <mat-table [dataSource]="dataSource" matSort>
+        <ng-container matColumnDef="idCliente">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> idCliente </mat-header-cell>
+          <mat-cell *matCellDef="let row">{{ row.id }} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="identificacion">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>
+            identificacion
+          </mat-header-cell>
+          <mat-cell *matCellDef="let row">
+            {{ row.identificacion }}
+          </mat-cell>
+        </ng-container>
+    
+        <ng-container matColumnDef="nombres">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>
+            nombres
+          </mat-header-cell>
+          <mat-cell *matCellDef="let row"> {{ row.nombres }} </mat-cell>
+        </ng-container>
+    
+        <ng-container matColumnDef="apellidos">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>
+            apellidos
+          </mat-header-cell>
+          <mat-cell *matCellDef="let row"> {{ row.apellidos }} </mat-cell>
+        </ng-container>
+    
+        <ng-container matColumnDef="direccion">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>
+            direccion
+          </mat-header-cell>
+          <mat-cell *matCellDef="let row"> {{ row.direccion }} </mat-cell>
+        </ng-container>
+    
+        <ng-container matColumnDef="edad">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>
+            edad
+          </mat-header-cell>
+          <mat-cell *matCellDef="let row">
+            {{ row.edad }}
+          </mat-cell>
+        </ng-container>
+    
+        <ng-container matColumnDef="estatus">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>
+            Estado
+          </mat-header-cell>
+          <mat-cell *matCellDef="let row"> {{ row.estatus }} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="factura">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>
+            factura
+          </mat-header-cell>
+          <mat-cell *matCellDef="let row" id="factura">
+            <button
+              mat-button
+              color="primary"
+              (click)="descargarFactura(row)"
+            >
+              Descargar Factura
+            </button>
+          </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="acciones">
+          <mat-header-cell *matHeaderCellDef>Acciones</mat-header-cell>
+          <mat-cell *matCellDef="let row">
+            <button
+              mat-button
+              color="accent"
+              (click)="abrirDialogo(row)"
+            >
+              <mat-icon>Renovar</mat-icon>
+            </button>
+          </mat-cell>
+        </ng-container>
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns"> </mat-row>
+      </mat-table>
+      <mat-paginator [pageSize]="15" [pageSizeOptions]="[20, 30]"></mat-paginator>
+    </ng-container>
+    <ng-template #sinResultados>
+      <ng-container *ngIf="this.dataSource?.data != undefined">
+        <h2>Sin Resultados</h2>
+      </ng-container>
+    </ng-template>
