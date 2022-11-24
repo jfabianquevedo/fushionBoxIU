@@ -1,5 +1,6 @@
 mat-grid-tile{
     border-color: black;
     border-style: solid;
+    border-width: 0.3px;
     /* background: lightgreen; */
 }

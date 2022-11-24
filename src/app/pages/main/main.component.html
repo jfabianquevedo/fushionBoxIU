@@ -1,0 +1,33 @@
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+        <mat-icon>check</mat-icon>
+        <h1>FUSHION - BOX</h1>
+        <div><a mat-button [routerLink]="">Servicios</a></div>
+        <div>
+            <a mat-button [routerLink]="">Precios</a>
+        </div>
+        <div>
+            <a mat-button [routerLink]="">Equipo</a>
+        </div>
+        <div>
+            <a mat-button [routerLink]="">Contacto</a>
+        </div>
+        <div>
+            <a mat-button [routerLink]="">Blog</a>
+        </div>
+        <div>
+            <button mat-button>
+                <mat-icon>login</mat-icon>
+            </button>
+        </div>
+    </mat-toolbar-row>
+</mat-toolbar>
+<div class="video-container">
+    <video autoplay loop class="fillWidth visible-lg" id="video">
+     <source src="https://morning-shelf-6185.herokuapp.com/assets/2015-01-01-bokeh-6e0d97b003dff1c88b95db3126cd4788.mp4" type="video/mp4; "/>        
+     Your browser does not support the video tag.
+ </video>
+ <script>
+    document.getElementById('video').play();
+</script>
+</div>

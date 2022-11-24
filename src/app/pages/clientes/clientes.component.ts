@@ -3,6 +3,8 @@ import { Cliente } from './../../_model/Cliente';
 import { ClienteService } from './../../_service/cliente.service';
 import { FormGroup } from '@angular/forms';
 import { FormControl } from '@angular/forms'
+import { UtilService } from './../../_service/util.service';
+import { environment } from 'src/environments/environment';
 
 
 @Component({
@@ -18,6 +20,7 @@ export class ClientesComponent implements OnInit {
   constructor(
     private clienteService: ClienteService,
     private cliente: Cliente,
+    private utilService: UtilService
   ) { }
 
   ngOnInit(): void {
@@ -31,13 +34,9 @@ this.cliente.apellidos = this.clientesForm.value['apellidos']
 this.cliente.direccion = this.clientesForm.value['direccion']
 this.cliente.edad = this.clientesForm.value['edad']
 this.cliente.estatus = true
-
-
-
-
   this.clienteService.registrar(this.cliente).subscribe(
     response => {
-      console.log("guardado")
+      this.utilService.mostrarMensaje('CLIENTE REGISTRADO CORRECTAMENTE',environment.exitoso,environment.exitoso);
     }
   );
 }
