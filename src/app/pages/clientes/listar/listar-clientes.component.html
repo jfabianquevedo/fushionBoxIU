@@ -1,0 +1,67 @@
+  <h1>Lista  Usuarios</h1>
+  <div class="buscador">
+      <mat-form-field appearance="outline">
+          <mat-label>nombre</mat-label>
+          <input matInput (keyup)="applyFilter($event.target.value)">
+        </mat-form-field>
+      </div>
+
+<ng-container *ngIf="this.dataSource?.data.length > 0; else sinResultados">
+    <mat-table [dataSource]="dataSource" matSort>
+        <ng-container matColumnDef="identificacion">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> identificacion </mat-header-cell>
+          <mat-cell *matCellDef="let row">{{ row.identificacion }} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="nombres">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>
+            nombres
+          </mat-header-cell>
+          <mat-cell *matCellDef="let row"> {{ row.nombres }} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="apellidos">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>
+                apellidos
+            </mat-header-cell>
+            <mat-cell *matCellDef="let row"> {{ row.apellidos }} </mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="direccion">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>
+                direccion
+            </mat-header-cell>
+            <mat-cell *matCellDef="let row"> {{ row.direccion }} </mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="celular">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>
+                celular
+            </mat-header-cell>
+            <mat-cell *matCellDef="let row"> {{ row.celular }} </mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="correo">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>
+                correo
+            </mat-header-cell>
+            <mat-cell *matCellDef="let row"> {{ row.correo }} </mat-cell>
+          </ng-container>
+
+       <!--<ng-container matColumnDef="acciones">
+          <mat-header-cell *matHeaderCellDef>Acciones</mat-header-cell>
+          <mat-cell *matCellDef="let row">
+            <button
+              mat-button
+              color="accent"
+              (click)="abrirDialogo(row)"
+            >
+              <mat-icon>delete</mat-icon>
+            </button>
+          </mat-cell>
+        </ng-container>-->
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns"> </mat-row>
+      </mat-table>
+      <mat-paginator [pageSize]="1" [pageSizeOptions]="[20, 30]"></mat-paginator>
+    </ng-container>
+    <ng-template #sinResultados>
+        <ng-container *ngIf="this.dataSource?.data != undefined">
+          <h2>Sin Resultados</h2>
+        </ng-container>
+      </ng-template>

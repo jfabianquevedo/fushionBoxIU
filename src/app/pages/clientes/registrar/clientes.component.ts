@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Cliente } from './../../_model/Cliente';
-import { ClienteService } from './../../_service/cliente.service';
+import { Cliente } from '../../../_model/Cliente';
+import { ClienteService } from '../../../_service/Cliente.service';
 import { FormGroup } from '@angular/forms';
 import { FormControl } from '@angular/forms'
-import { UtilService } from './../../_service/util.service';
+import { UtilService } from '../../../_service/Util.service';
 import { environment } from 'src/environments/environment';
 
 
@@ -33,6 +33,8 @@ this.cliente.nombres = this.clientesForm.value['nombres']
 this.cliente.apellidos = this.clientesForm.value['apellidos']
 this.cliente.direccion = this.clientesForm.value['direccion']
 this.cliente.edad = this.clientesForm.value['edad']
+this.cliente.celular = this.clientesForm.value['celular']
+this.cliente.correo = this.clientesForm.value['correo']
 this.cliente.estatus = true
   this.clienteService.registrar(this.cliente).subscribe(
     response => {
@@ -48,6 +50,8 @@ crearformularioCliente(){
     apellidos: new FormControl(),
     direccion: new FormControl(),
     edad: new FormControl(),
+    celular: new FormControl(),
+    correo: new FormControl()
   });
 }
 

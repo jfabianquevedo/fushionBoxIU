@@ -1,0 +1,23 @@
+<mat-list>
+    <mat-list-item>identificacion: {{ cliente.identificacion }}</mat-list-item>
+    <mat-divider></mat-divider>
+    <mat-list-item>nombres: {{ cliente.nombres }}</mat-list-item>
+    <mat-divider></mat-divider>
+    <mat-list-item>apellidos: {{ cliente.apellidos }}</mat-list-item>
+    <mat-divider></mat-divider>
+    <mat-list-item>direccion: {{ cliente.direccion }}</mat-list-item>
+    <mat-divider></mat-divider>
+    <mat-list-item>celular: {{ cliente.celular }}</mat-list-item>
+    <mat-divider></mat-divider>
+    <mat-list-item>correo: {{ cliente.correo }}</mat-list-item>
+    <mat-divider></mat-divider>
+  
+  <button mat-raised-button color="primary" type="submit" (click)="Confirmar()">
+    <mat-icon>done</mat-icon>
+    <span>Confirmar</span>
+  </button>
+  <button mat-raised-button color="warn" type="submit" (click)="cerrar()">
+    <mat-icon>done</mat-icon>
+    <span>Cancelar</span>
+  </button>
+  

@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { ClienteService } from './../../../_service/cliente.service';
-import { Cliente } from './../../../_model/Cliente';
+import { ClienteService } from '../../../_service/Cliente.service';
+import { Cliente } from '../../../_model/Cliente';
 import { MatPaginator } from '@angular/material/paginator';
 import { ChangeDetectorRef } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
@@ -57,7 +57,7 @@ export class BuscarClienteComponent implements OnInit {
     this.clienteService.setDataSource(this.dataSource);
   }
 
-  descargarFactura(cliente: Cliente) {
+ /* descargarFactura(cliente: Cliente) {
     this.clienteService.descargarFactura(cliente.id).subscribe(data => {
       const url = window.URL.createObjectURL(data);
       const a = document.createElement('a');
@@ -67,7 +67,7 @@ export class BuscarClienteComponent implements OnInit {
       a.download = `${cliente.id}_${cliente.identificacion}_${cliente.nombres}_log.zip`;
       a.click();
     });
-  }
+  }*/
 
   abrirDialogo(cliente?: Cliente) {
 
