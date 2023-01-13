@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { Facturas } from './../../../_model/Facturas';
-import { FacturasService } from 'src/app/_service/Facturas.service';
+import { facturasService } from 'src/app/_service/facturas.service';
 
 @Component({
   selector: 'app-listar',
@@ -26,7 +26,7 @@ export class ListarComponent implements OnInit {
     "facturas"
   ];
   constructor(
-    private facturaService: FacturasService
+    private facturaService: facturasService
     ) { }
 
   ngOnInit(): void {

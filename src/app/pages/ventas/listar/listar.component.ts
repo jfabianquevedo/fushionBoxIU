@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { Ventas } from 'src/app/_model/Ventas';
-import { VentasService } from 'src/app/_service/Ventas.service';
+import { ventasService } from 'src/app/_service/ventas.service';
 
 @Component({
   selector: 'app-listar',
@@ -21,7 +21,7 @@ export class ListarComponent implements OnInit {
     "estadoPago",
     "inventario"
   ];
-  constructor(private ventasService: VentasService) { }
+  constructor(private ventasService: ventasService) { }
 
   ngOnInit(): void {
     this.ventasService.listar().subscribe((data) =>{

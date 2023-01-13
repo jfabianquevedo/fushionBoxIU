@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Planes } from 'src/app/_model/Planes';
-import { PlanesService } from '../../../_service/Planes.service';
+import { planesService } from '../../../_service/planes.service';
 import { FormGroup, FormControl } from '@angular/forms';
-import { UtilService } from '../../../_service/Util.service';
+import { utilService } from '../../../_service/util.service';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -16,9 +16,9 @@ export class PlanesComponent implements OnInit {
   planesForm: FormGroup;
 
   constructor(
-private planesService: PlanesService,
+private planesService: planesService,
 private planes: Planes,
-private utilService: UtilService
+private utilService: utilService
   ) { }
 
   ngOnInit(): void {

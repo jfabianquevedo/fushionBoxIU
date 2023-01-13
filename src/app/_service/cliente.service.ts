@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 import { Cliente } from '../_model/Cliente';
-import { GenericService } from './Generic.service';
+import { genericService } from './generic.service';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { MatTableDataSource } from '@angular/material/table';
@@ -12,7 +12,7 @@ import { MatTableDataSource } from '@angular/material/table';
   providedIn: 'root'
 })
 
-export class ClienteService extends GenericService<Cliente>{
+export class clienteService extends genericService<Cliente>{
 
 private clienteCambio: Subject<Cliente[]> = new Subject<Cliente[]>();
 private mensajeCambio: Subject<string> = new Subject<string>();

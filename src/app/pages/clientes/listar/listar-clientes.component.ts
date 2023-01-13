@@ -2,7 +2,7 @@ import { Component, OnInit, ChangeDetectorRef, ViewChild } from '@angular/core';
 import { Cliente } from './../../../_model/Cliente';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
-import { ClienteService } from './../../../_service/Cliente.service';
+import { clienteService } from '../../../_service/cliente.service';
 import { FormGroup } from '@angular/forms';
 import { EditarComponent } from './../editar/editar.component';
 import { MatDialog } from '@angular/material/dialog';
@@ -25,7 +25,7 @@ export class ListarClientesComponent implements OnInit {
     "correo"
   ];
   constructor( private detectorCambios: ChangeDetectorRef,
-    private clienteService: ClienteService,
+    private clienteService: clienteService,
     private dialog: MatDialog) { }
 
   ngOnInit(): void {

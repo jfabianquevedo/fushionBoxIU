@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { VentasService } from 'src/app/_service/Ventas.service';
+import { ventasService } from 'src/app/_service/ventas.service';
 import { Cliente } from '../../../_model/Cliente';
-import { UtilService } from '../../../_service/Util.service';
+import { utilService } from '../../../_service/util.service';
 import { FormGroup, FormControl } from '@angular/forms';
 import { environment } from 'src/environments/environment';
-import { ClienteService } from '../../../_service/Cliente.service';
+import { clienteService } from '../../../_service/cliente.service';
 import { inventario } from '../../../_model/Inventario';
-import { InventarioService } from '../../../_service/Inventario.service';
+import { inventarioService } from '../../../_service/inventario.service';
 import { Ventas } from 'src/app/_model/Ventas';
 import { TipoPago } from 'src/app/enums/TipoPago';
 import { EstadoPago } from 'src/app/enums/EstadoPago';
@@ -28,10 +28,10 @@ export class VentasComponent implements OnInit {
   estadoPago = Object.keys(EstadoPago).filter((v) => isNaN(Number(v)));
 
   constructor(
-    private ventasService: VentasService,
-    private clienteService: ClienteService,
-    private utilService: UtilService,
-    private inventarioService: InventarioService,
+    private ventasService: ventasService,
+    private clienteService: clienteService,
+    private utilService: utilService,
+    private inventarioService: inventarioService,
     private ventas: Ventas
   ) { }
 

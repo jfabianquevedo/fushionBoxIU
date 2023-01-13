@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
-export class GenericService<T> {
+export class genericService<T> {
 
   constructor(
     protected http: HttpClient,

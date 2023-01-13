@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { inventario } from '../../../_model/Inventario';
-import { InventarioService } from '../../../_service/Inventario.service';
-import { UtilService } from '../../../_service/Util.service';
+import { inventarioService } from '../../../_service/inventario.service';
+import { utilService } from '../../../_service/util.service';
 import { environment } from 'src/environments/environment';
 import { CurrencyPipe } from '@angular/common';
 
@@ -17,8 +17,8 @@ export class InventarioComponent implements OnInit {
   inventarioForm: FormGroup;
   formattedAmount;
   constructor(private inventario: inventario,
-    private inventarioService: InventarioService,
-    private utilService: UtilService) { }
+    private inventarioService: inventarioService,
+    private utilService: utilService) { }
 
   ngOnInit(): void {
    this.crearformularioInventario()

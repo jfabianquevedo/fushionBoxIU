@@ -10,13 +10,13 @@ import {
 } from '@angular/common/http';
 import { Observable, EMPTY, of } from 'rxjs';
 import { tap, catchError, retry } from 'rxjs/operators';
-import { UtilService } from '../_service/Util.service';
+import { utilService } from '../_service/util.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ServerErrorsInterceptor implements HttpInterceptor {
-  constructor(private utilService: UtilService) { }
+  constructor(private utilService: utilService) { }
 
   intercept(
     request: HttpRequest<any>,

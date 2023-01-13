@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Cliente } from '../../../_model/Cliente';
-import { ClienteService } from '../../../_service/Cliente.service';
+import { clienteService } from '../../../_service/cliente.service';
 import { FormGroup, Validators } from '@angular/forms';
 import { FormControl } from '@angular/forms'
-import { UtilService } from '../../../_service/Util.service';
+import { utilService } from '../../../_service/util.service';
 import { environment } from 'src/environments/environment';
 
 
@@ -18,9 +18,9 @@ export class ClientesComponent implements OnInit {
   clientesForm: FormGroup;
 
   constructor(
-    private clienteService: ClienteService,
+    private clienteService: clienteService,
     private cliente: Cliente,
-    private utilService: UtilService
+    private utilService: utilService
   ) { }
 
   ngOnInit(): void {

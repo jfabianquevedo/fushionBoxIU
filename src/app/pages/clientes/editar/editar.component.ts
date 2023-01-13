@@ -1,7 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Cliente } from './../../../_model/Cliente';
-import { ClienteService } from './../../../_service/Cliente.service';
+import { clienteService } from '../../../_service/cliente.service';
 
 @Component({
   selector: 'app-editar',
@@ -14,7 +14,7 @@ export class EditarComponent implements OnInit {
 
   constructor(private dialogRef: MatDialogRef<EditarComponent>,
     @Inject(MAT_DIALOG_DATA) private data: Cliente,
-    private clienteService: ClienteService) { }
+    private clienteService: clienteService) { }
 
   ngOnInit(): void {
     this.cliente = { ...this.data };

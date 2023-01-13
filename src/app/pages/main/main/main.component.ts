@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UtilService } from '../../../_service/Util.service';
+import { utilService } from '../../../_service/util.service';
 
 @Component({
   selector: 'app-main',
@@ -11,7 +11,7 @@ export class MainComponent implements OnInit {
   config;
   appitems: any = [];
 
-  constructor(public utilidades: UtilService) { }
+  constructor(public utilidades: utilService) { }
 
   ngOnInit(): void {
     this.config = this.utilidades.configMultilevelMenu();

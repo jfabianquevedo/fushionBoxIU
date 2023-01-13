@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { FacturasService } from 'src/app/_service/Facturas.service';
+import { facturasService } from 'src/app/_service/facturas.service';
 import { Facturas } from '../../../_model/Facturas';
 import { FormGroup, FormControl } from '@angular/forms';
-import { ClienteService } from '../../../_service/Cliente.service';
+import { clienteService } from '../../../_service/cliente.service';
 import { Planes } from 'src/app/_model/Planes';
 import { Cliente } from '../../../_model/Cliente';
-import { PlanesService } from '../../../_service/Planes.service';
-import { UtilService } from '../../../_service/Util.service';
+import { planesService } from '../../../_service/planes.service';
+import { utilService } from '../../../_service/util.service';
 import { environment } from 'src/environments/environment';
 import { TipoPago } from 'src/app/enums/TipoPago';
 
@@ -27,11 +27,11 @@ export class FacturaComponent implements OnInit {
   tipoPago = Object.keys(TipoPago).filter((v) => isNaN(Number(v)));
 
   constructor(
-    private facturaService: FacturasService,
+    private facturaService: facturasService,
     private factura: Facturas,
-    private clienteService: ClienteService,
-    private planesService: PlanesService,
-    private utilService: UtilService
+    private clienteService: clienteService,
+    private planesService: planesService,
+    private utilService: utilService
   ) { }
 
   ngOnInit(): void {

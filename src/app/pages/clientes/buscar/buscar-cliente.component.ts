@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { ClienteService } from '../../../_service/Cliente.service';
+import { clienteService } from '../../../_service/cliente.service';
 import { Cliente } from '../../../_model/Cliente';
 import { MatPaginator } from '@angular/material/paginator';
 import { ChangeDetectorRef } from '@angular/core';
@@ -29,7 +29,7 @@ export class BuscarClienteComponent implements OnInit {
   ];
   dataSource: MatTableDataSource<Cliente>;
   constructor(
-    private clienteService: ClienteService,
+    private clienteService: clienteService,
     private detectorCambios: ChangeDetectorRef
   ) {}
 
