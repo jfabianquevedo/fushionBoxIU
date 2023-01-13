@@ -1,0 +1,38 @@
+<router-outlet></router-outlet>
+<div class="contenedor">
+    <div class="elements">
+      <form [formGroup]="inventarioForm"
+      #form="ngForm">
+        <div>
+            <mat-form-field appearance="fill">
+              <mat-label>nombre</mat-label>
+              <input matInput formControlName="nombre" required>
+            </mat-form-field>
+        </div>
+        <div style="justify-content: center;">
+          <mat-form-field appearance="fill">
+            <mat-label>cantidad</mat-label>
+            <input matInput type="number" formControlName="cantidad" required>
+          </mat-form-field>
+        </div>
+        <div style="justify-content: center;">
+            <mat-form-field appearance="fill">
+              <mat-label>valor unitario</mat-label>
+              <input matInput formControlName="valorUnitario" [value]="inventarioForm.get('valorUnitario').value | number:'1.2-3'"  required>
+            </mat-form-field>
+          </div>
+          <div style="justify-content: center;">
+            <mat-form-field appearance="fill">
+              <mat-label>valor total</mat-label>
+              <input matInput formControlName="valorTotal" [value]="inventarioForm.get('valorTotal').value | number:'1.2-3'" required>
+            </mat-form-field>
+          </div>
+        <div class="boton">
+          <div style="padding: 2mm;">
+            <button mat-raised-button color="primary"
+            [disabled]="form.invalid"
+            (click)="registrar()">crear producto</button></div>
+        </div>
+      </form>
+    </div>
+  </div>

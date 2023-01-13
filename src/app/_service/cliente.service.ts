@@ -1,9 +1,11 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 import { Cliente } from '../_model/Cliente';
-import { GenericService } from './generic.service';
+import { GenericService } from './Generic.service';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
+import { MatTableDataSource } from '@angular/material/table';
+
 
 
 @Injectable({
@@ -14,6 +16,8 @@ export class ClienteService extends GenericService<Cliente>{
 
 private clienteCambio: Subject<Cliente[]> = new Subject<Cliente[]>();
 private mensajeCambio: Subject<string> = new Subject<string>();
+private dataSource: Subject<MatTableDataSource<Cliente>> = new Subject<MatTableDataSource<Cliente>>();
+
 
   constructor(protected http: HttpClient) {
     super(
@@ -35,5 +39,16 @@ private mensajeCambio: Subject<string> = new Subject<string>();
     getMensajeCambio(){
       return this.mensajeCambio.asObservable();
     }
+
+    setDataSource(dataSource:MatTableDataSource<Cliente>){
+      this.dataSource.next(dataSource);
+    }
+  
+    getDataSource(){
+      return this.dataSource.asObservable();
+    }
+
+
+    
 
 }

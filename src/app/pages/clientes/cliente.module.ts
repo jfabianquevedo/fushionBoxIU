@@ -6,11 +6,13 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from 'src/app/material/material/material.module';
 import { ClientesComponent } from './registrar/clientes.component';
 import { EditarComponent } from './editar/editar.component';
+import { ListarPendientesComponent } from './listar-pendientes/listar-pendientes.component';
 
 @NgModule({
   declarations: [
     ClientesComponent,
-    EditarComponent
+    EditarComponent,
+    ListarPendientesComponent
   ],
   imports: [
   CommonModule,

@@ -1,39 +1,41 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
-
-
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ClientesComponent } from './pages/clientes/clientes.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
-import {MatButtonModule} from '@angular/material/button';
-import { MatInputModule } from '@angular/material/input';
-
-
-
+import { BuscarClienteComponent } from './pages/clientes/buscar/buscar-cliente.component';
+import { ListarClientesComponent } from './pages/clientes/listar/listar-clientes.component';
+import { ServerErrorsInterceptor } from './shared/Server-errors.interceptor';
+import { MainComponent } from './pages/main/main/main.component';
+import { NgMaterialMultilevelMenuModule,MultilevelMenuService } from 'ng-material-multilevel-menu';
+import { MaterialModule } from './material/material/material.module';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    ClientesComponent
+    BuscarClienteComponent,
+    ListarClientesComponent,
+    MainComponent
   ],
   imports: [
-    BrowserModule,
+  BrowserModule,
+  NgMaterialMultilevelMenuModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
-    MatButtonModule,
-    MatInputModule,
-    MatFormFieldModule
+    MaterialModule
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: ServerErrorsInterceptor,
+    multi: true
+  }, MultilevelMenuService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

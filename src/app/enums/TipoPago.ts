@@ -1,0 +1,6 @@
+export enum TipoPago {
+    TRANSFERENCIA_BANCOLOMBIA,
+	EFECTIVO,
+	NEQUI,
+	DAVIPLATA
+}

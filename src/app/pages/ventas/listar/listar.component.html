@@ -1,0 +1,53 @@
+<h1>Lista Ventas</h1>
+<div class="buscador">
+  <mat-form-field appearance="outline">
+    <mat-label>nombre</mat-label>
+    <input matInput (keyup)="applyFilter($event.target.value)">
+  </mat-form-field>
+
+  <ng-container *ngIf="this.dataSource?.data.length > 0; else sinResultados">
+    <mat-table [dataSource]="dataSource" matSort>
+      <ng-container matColumnDef="cliente">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> cliente </mat-header-cell>
+        <mat-cell *matCellDef="let row">{{ row.cliente.nombres}} </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="fechaPago">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>
+          fechaPago
+        </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{ row.fechaPago }} </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="fechaInicio">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>
+            fechaInicio
+        </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{ row.fechaInicio }} </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="tipoPago">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>
+          tipoPago
+        </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{ row.tipoPago }} </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="estadoPago">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>
+          estadoPago
+        </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{ row.estadoPago }} </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="inventario">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>
+          inventario
+        </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{ row.inventario }} </mat-cell>
+      </ng-container>
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns"> </mat-row>
+    </mat-table>
+    <mat-paginator [pageSize]="10" [pageSizeOptions]="[20, 30]"></mat-paginator>
+  </ng-container>
+  <ng-template #sinResultados>
+    <ng-container *ngIf="this.dataSource?.data != undefined">
+      <h2>Sin Resultados</h2>
+    </ng-container>
+  </ng-template>

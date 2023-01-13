@@ -1,0 +1,22 @@
+<div id="divMenu" class="example-container">
+    <mat-toolbar color="primary" class="example-toolbar">
+    <button mat-icon-button (click)="sidenav.toggle()">
+        <mat-icon *ngIf="!sidenav.opened">menu</mat-icon>
+        <mat-icon *ngIf="sidenav.opened">close</mat-icon>
+      </button>
+      <span class="example-spacer"></span>
+    </mat-toolbar> 
+     <mat-sidenav-container class="example-sidenav-container">
+      <mat-sidenav #sidenav style="width: 250px" mode="side" opened="true">
+        <ng-material-multilevel-menu
+          [items]="appitems"
+          [configuration]="config"
+          (selectedItem)="selectedItem($event)"
+        >
+        </ng-material-multilevel-menu>
+      </mat-sidenav>
+      <mat-sidenav-content>
+        <router-outlet></router-outlet>
+      </mat-sidenav-content>
+    </mat-sidenav-container>
+  </div>

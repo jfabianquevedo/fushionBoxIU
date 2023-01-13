@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Cliente } from '../../../_model/Cliente';
 import { ClienteService } from '../../../_service/Cliente.service';
-import { FormGroup } from '@angular/forms';
+import { FormGroup, Validators } from '@angular/forms';
 import { FormControl } from '@angular/forms'
 import { UtilService } from '../../../_service/Util.service';
 import { environment } from 'src/environments/environment';
@@ -39,6 +39,9 @@ this.cliente.estatus = true
   this.clienteService.registrar(this.cliente).subscribe(
     response => {
       this.utilService.mostrarMensaje('CLIENTE REGISTRADO CORRECTAMENTE',environment.exitoso,environment.exitoso);
+      setTimeout(() => {
+        this.clientesForm.reset();
+      }, 500);
     }
   );
 }
@@ -51,7 +54,7 @@ crearformularioCliente(){
     direccion: new FormControl(),
     edad: new FormControl(),
     celular: new FormControl(),
-    correo: new FormControl()
+    correo: new FormControl('', Validators.email),
   });
 }
 

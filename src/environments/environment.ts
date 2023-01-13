@@ -8,7 +8,12 @@ export const environment = {
   TOKEN_AUTH_USERNAME: 'fushionApp',
   TOKEN_AUTH_PASSWORD: 'fushionBoxApp2022',
   TOKEN_NAME: 'access_token',
-  REINTENTOS: 2  
+  REINTENTOS: 2 ,
+  DURACION: 5000,
+  //posibles errores mensaje.
+  alerta: 'ALERTA',
+  Error: 'ERROR',
+  exitoso: 'EXITOSO',
 };
 
 /*

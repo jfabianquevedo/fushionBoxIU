@@ -1,0 +1,80 @@
+<h1>Lista Facturas</h1>
+<div class="buscador">
+  <mat-form-field appearance="outline">
+    <mat-label>nombre</mat-label>
+    <input matInput (keyup)="applyFilter($event.target.value)">
+  </mat-form-field>
+
+  <ng-container *ngIf="this.dataSource?.data.length > 0; else sinResultados">
+    <mat-table [dataSource]="dataSource" matSort>
+      <ng-container matColumnDef="identificacion">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> identificacion </mat-header-cell>
+        <mat-cell *matCellDef="let row">{{ row.cliente.identificacion }} </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="nombres">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>
+          nombres
+        </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{ row.cliente.nombres }} </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="apellidos">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>
+          apellidos
+        </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{ row.cliente.apellidos }} </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="plan">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>
+          plan
+        </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{ row.plan.nombre }} </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="fechaInicio">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>
+          fechaInicio
+        </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{ row.fechaInicio }} </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="fechaFin">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>
+          fechaFin
+        </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{ row.fechaFin }} </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="recibidoPor">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>
+          recibidoPor
+        </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{ row.recibidoPor }} </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="tipoPago">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>
+          tipoPago
+        </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{ row.tipoPago }} </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="facturas">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>
+          Logs
+        </mat-header-cell>
+        <mat-cell *matCellDef="let row" id="logs">
+          <button mat-button color="primary" (click)="descargarFactura(row)" *ngIf="!cargando; else loader">
+            Descargar Factura
+          </button>
+          <ng-template #loader>
+            <div class="funciones" *ngIf="cargando">
+              <mat-spinner [diameter]="40"></mat-spinner>
+            </div>
+          </ng-template>
+        </mat-cell>
+      </ng-container>
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns"> </mat-row>
+    </mat-table>
+    <mat-paginator [pageSize]="10" [pageSizeOptions]="[20, 30]"></mat-paginator>
+  </ng-container>
+  <ng-template #sinResultados>
+    <ng-container *ngIf="this.dataSource?.data != undefined">
+      <h2>Sin Resultados</h2>
+    </ng-container>
+  </ng-template>

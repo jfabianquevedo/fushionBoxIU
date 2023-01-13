@@ -1,13 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { planes } from 'src/app/_model/planes';
-import { PlanesService } from './../../../_service/planes.service';
+import { Planes } from 'src/app/_model/Planes';
+import { PlanesService } from '../../../_service/Planes.service';
 import { FormGroup, FormControl } from '@angular/forms';
+import { UtilService } from '../../../_service/Util.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-planes',
   templateUrl: './planes.component.html',
   styleUrls: ['./planes.component.css'],
-  providers: [planes]
+  providers: [Planes]
 })
 export class PlanesComponent implements OnInit {
 
@@ -15,8 +17,8 @@ export class PlanesComponent implements OnInit {
 
   constructor(
 private planesService: PlanesService,
-private planes: planes
-
+private planes: Planes,
+private utilService: UtilService
   ) { }
 
   ngOnInit(): void {
@@ -29,7 +31,10 @@ private planes: planes
     this.planes.duracion = this.planesForm.value['duracion']    
       this.planesService.registrar(this.planes).subscribe(
         response => {
-          console.log("guardado")
+          this.utilService.mostrarMensaje('PLAN REGISTRADO CORRECTAMENTE',environment.exitoso,environment.exitoso);    
+          setTimeout(() => {
+            this.planesForm.reset();
+          }, 500);
         }
       );
     }
@@ -38,7 +43,7 @@ private planes: planes
       this.planesForm = new FormGroup({
         idPlan: new FormControl(),
         nombre: new FormControl(),
-        precio: new FormControl(),
+        precio: new FormControl(0,{ updateOn: 'blur' }),
         duracion: new FormControl()
       });
     }

@@ -2,3 +2,21 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.ALERTA {
+    color: #9F6000;
+    background: #FEEFB3;
+    --colorSnackBarbutton: #9F6000;
+}
+
+.ERROR {
+    color: #D8000C;
+    background: #FFBABA;
+    --colorSnackBarbutton: #D8000C;
+}
+
+.EXITOSO {
+    color: #4F8A10;
+    background: #DFF2BF;
+    --colorSnackBarbutton: #4F8A10;
+}

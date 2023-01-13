@@ -1,0 +1,98 @@
+<router-outlet></router-outlet>
+ <div class="contenedor">
+    <div class="elements">
+      <form [formGroup]="ventasForm"
+      #formClientes="ngForm">
+         <div>
+        <mat-form-field appearance="fill">
+          <mat-label>cliente</mat-label>
+          <input 
+          type="text"
+          matInput 
+          formControlName="cliente"
+          [matAutocomplete]= 'auto'
+          required>
+        </mat-form-field>
+        <mat-autocomplete #auto="matAutocomplete" [displayWith]="getname">
+            <mat-option *ngFor="let usuario of listaUsuariosFilter" [value]="usuario">
+              {{usuario.nombres}}
+            </mat-option>
+          </mat-autocomplete>
+            </div>
+            <div>
+              <mat-form-field appearance="fill">
+                <mat-label>productos</mat-label>
+                <mat-select formControlName="productos" multiple>
+                  <mat-option *ngFor="let producto of listaProductos" [value]="producto.idInventario">{{producto.nombre}}</mat-option>
+                </mat-select>
+              </mat-form-field>
+          </div>
+          <div>
+            <mat-form-field appearance="fill">
+              <mat-label>cantidad</mat-label>
+              <input matInput type="number" formControlName="cantidad" required>
+            </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field class="example-full-width">
+            <mat-label>Fecha de Inicio</mat-label>
+            <input
+              matInput
+               [matDatepickerFilter]="myFilter"
+               [matDatepicker]="pickerFechaPago"
+              formControlName="fechaPago"
+              required
+            />
+            <mat-datepicker-toggle matSuffix [for]="pickerFechaPago"></mat-datepicker-toggle>
+            <mat-datepicker #pickerFechaPago></mat-datepicker>
+          </mat-form-field>
+        </div>
+        <div style="justify-content: center;">
+          <mat-form-field class="example-full-width">
+            <mat-label>Fecha Compra</mat-label>
+            <input
+              matInput
+               [matDatepickerFilter]="myFilter"
+               [matDatepicker]="pickerFechaInicio"
+              formControlName="fechaPago"
+              required
+            />
+            <mat-datepicker-toggle matSuffix [for]="pickerFechaInicio"></mat-datepicker-toggle>
+            <mat-datepicker #pickerFechaInicio></mat-datepicker>
+          </mat-form-field>
+        </div>
+        <div style="justify-content: center;">
+          <mat-form-field class="example-full-width">
+            <mat-label>Tipo Pago</mat-label>
+            <mat-select
+            required
+              formControlName="tipoPago"
+              name="tipoPago">
+              <mat-option *ngFor="let pago of tipoPago" [value]="pago">
+                {{ pago }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div style="justify-content: center;">
+          <mat-form-field class="example-full-width">
+            <mat-label>Estado Pago</mat-label>
+            <mat-select
+            required
+              formControlName="estadoPago"
+              name="estadoPago">
+              <mat-option *ngFor="let estado of estadoPago" [value]="estado">
+                {{ estado }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="boton">
+          <div style="padding: 2mm;">
+            <button mat-raised-button color="primary"
+            [disabled]="formClientes.invalid"
+            (click)="registrar()">crear Venta</button></div>
+        </div>
+      </form>
+    </div>
+  </div>

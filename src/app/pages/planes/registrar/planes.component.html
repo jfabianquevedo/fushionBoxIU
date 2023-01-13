@@ -13,19 +13,19 @@
         <div style="justify-content: center;">
             <mat-form-field appearance="fill">
               <mat-label>precio</mat-label>
-              <input matInput formControlName="precio" required>
+              <input matInput formControlName="precio" [value]="planesForm.get('precio').value | number:'1.2-3'" required>
             </mat-form-field>
           </div>
           <div style="justify-content: center;">
             <mat-form-field appearance="fill">
               <mat-label>duracion</mat-label>
-              <input matInput formControlName="duracion" required>
+              <input matInput type="number" formControlName="duracion" required>
             </mat-form-field>
           </div>
         <div class="boton">
           <div style="padding: 2mm;">
             <button mat-raised-button color="primary"
-            [disabled]="planesForm.invalid"
+            [disabled]="formPlanes.invalid"
             (click)="registrarPlan()">crear Plan</button></div>
         </div>
       </form>
